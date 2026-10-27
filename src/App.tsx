@@ -1,8 +1,10 @@
 import * as React from "react";
-import ClothingRailShowroom from "@/components/ui/demo";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import ClothingRailShowroom, { type IndustryKey } from "@/components/ui/demo";
+import { ArrowUpRight, MessageCircle, Sparkles } from "lucide-react";
 
 export default function App() {
+  const [category, setCategory] = React.useState<IndustryKey>("apparel");
+
   const whatsappUrl =
     "https://wa.me/56949253373?text=Hola!%20Vi%20la%20demo%20del%20cat%C3%A1logo%203D%20y%20me%20gustar%C3%ADa%20cotizar%20para%20mi%20marca";
 
@@ -18,11 +20,48 @@ export default function App() {
             </span>
             <span className="hidden sm:inline-block h-3.5 w-px bg-zinc-300" />
             <span className="hidden sm:inline-block text-[11px] text-zinc-500 font-normal tracking-wide">
-              Catálogo Interactivo de Ropa
+              Catálogo Interactivo para Negocios
             </span>
           </div>
 
-          {/* Contactar Button (No raw phone number) */}
+          {/* Minimalist Industry Switcher (Apple Style Segmented Control) */}
+          <div className="p-1 rounded-full bg-zinc-100/90 border border-zinc-200/80 flex items-center shadow-inner">
+            <button
+              type="button"
+              onClick={() => setCategory("apparel")}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                category === "apparel"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              👕 Ropa
+            </button>
+            <button
+              type="button"
+              onClick={() => setCategory("bakery")}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                category === "bakery"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              🍰 Pastelería
+            </button>
+            <button
+              type="button"
+              onClick={() => setCategory("produce")}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                category === "produce"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              🥑 Frutas & Huerta
+            </button>
+          </div>
+
+          {/* Contactar Button */}
           <div className="flex items-center gap-3">
             <a
               href={whatsappUrl}
@@ -42,24 +81,27 @@ export default function App() {
       <main className="flex-1">
         {/* Minimal Hero Header */}
         <div className="max-w-4xl mx-auto px-4 pt-12 pb-4 text-center">
-          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-zinc-400 mb-2">
-            Catálogo Virtual
-          </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase mb-3 bg-black/[0.03] border border-black/[0.05] text-zinc-600">
+            <Sparkles className="w-3 h-3 text-amber-500" />
+            Vitrina 3D Multirubro
+          </div>
           <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight text-zinc-900 text-balance">
-            La vitrina interactiva para tu marca.
+            La vitrina interactiva para cualquier tipo de producto.
           </h1>
           <p className="mt-3 text-sm sm:text-base text-zinc-500 max-w-xl mx-auto font-normal leading-relaxed">
-            Desliza por las prendas, gíralas en 360° frente y espalda, e interactúa con cada pieza en tiempo real.
+            {category === "apparel" && "Explora moda, poleras y streetwear con perchero de física real y giro 360°."}
+            {category === "bakery" && "Exhibición gourmet para pastelerías, tortas de autor y repostería artesanal."}
+            {category === "produce" && "Catálogo fresco para huertos, canastas de verduras y frutas del campo a la puerta."}
           </p>
         </div>
 
-        {/* 3D Clothing Rail Gallery */}
+        {/* 3D Showcase Component */}
         <section className="relative w-full py-4">
-          <ClothingRailShowroom />
+          <ClothingRailShowroom category={category} />
         </section>
       </main>
 
-      {/* Floating WhatsApp Pill (Minimalist, without raw number) */}
+      {/* Floating WhatsApp Quick Pill */}
       <a
         href={whatsappUrl}
         target="_blank"
@@ -74,7 +116,7 @@ export default function App() {
       {/* iMac Minimal Footer */}
       <footer className="border-t border-black/[0.06] py-8 px-4 sm:px-6 bg-white/60 text-xs text-zinc-500">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Showroom 3D · Demostración de catálogo interactivo.</p>
+          <p>© {new Date().getFullYear()} Showroom 3D · Demostración de catálogo interactivo para tiendas.</p>
           <div className="flex items-center gap-6">
             <a
               href={whatsappUrl}
