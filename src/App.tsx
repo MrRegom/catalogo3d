@@ -4,7 +4,7 @@ import { ArrowUpRight, MessageCircle, Sparkles } from "lucide-react";
 
 export default function App() {
   const whatsappUrl =
-    "https://wa.me/56949253373?text=Hola!%20Vi%20la%20demo%20del%20cat%C3%A1logo%203D%20y%20me%20gustar%C3%ADa%20cotizar%20para%20mi%20marca";
+    "https://wa.me/56949253373?text=Hola!%20Vi%20la%20demo%20del%20cat%C3%A1logo%203D%20de%20camisetas%20de%20f%C3%BAtbol%20y%20me%20gustar%C3%ADa%20cotizar%20para%20mi%20tienda";
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white flex flex-col font-sans overflow-x-hidden">
@@ -14,11 +14,11 @@ export default function App() {
           {/* Brand */}
           <div className="flex items-center gap-2.5 shrink-0">
             <span className="text-sm font-semibold tracking-tight uppercase">
-              Showroom<span className="font-light text-zinc-400">.3D</span>
+              Camisetas<span className="font-light text-zinc-400">.3D</span>
             </span>
             <span className="hidden sm:inline-block h-3.5 w-px bg-zinc-300" />
             <span className="hidden sm:inline-block text-[11px] text-zinc-500 font-normal tracking-wide">
-              Catálogo Interactivo de Ropa
+              Fútbol Chileno & Selección
             </span>
           </div>
 
@@ -42,13 +42,13 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 pt-8 sm:pt-12 pb-2 text-center">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-medium tracking-wider uppercase mb-3 bg-black/[0.03] border border-black/[0.05] text-zinc-600">
             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-            Catálogo Interactivo 3D
+            Colección Fútbol Chileno & La Roja
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-zinc-900 text-balance px-2">
-            La vitrina virtual para tu marca.
+            La vitrina futbolera interactiva.
           </h1>
           <p className="mt-2.5 text-xs sm:text-sm md:text-base text-zinc-500 max-w-xl mx-auto font-normal leading-relaxed px-4">
-            Desliza por las prendas, gíralas en 360° frente y espalda, e interactúa con cada pieza en tiempo real.
+            Desliza por las camisetas de la Selección Chilena, Colo-Colo, Universidad de Chile, Católica y más en 360° interactivo.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export default function App() {
       {/* iMac Minimal Footer */}
       <footer className="border-t border-black/[0.06] py-6 sm:py-8 px-4 bg-white/60 text-[11px] sm:text-xs text-zinc-500">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Showroom 3D · Catálogo interactivo para tiendas de ropa.</p>
+          <p>© {new Date().getFullYear()} Camisetas 3D · Catálogo interactivo de camisetas de fútbol.</p>
           <div className="flex items-center gap-5">
             <a
               href={whatsappUrl}
