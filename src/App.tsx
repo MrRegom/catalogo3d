@@ -1,103 +1,60 @@
 import * as React from "react";
-import ClothingRailShowroom, { type IndustryKey } from "@/components/ui/demo";
+import ClothingRailShowroom from "@/components/ui/demo";
 import { ArrowUpRight, MessageCircle, Sparkles } from "lucide-react";
 
 export default function App() {
-  const [category, setCategory] = React.useState<IndustryKey>("apparel");
-
   const whatsappUrl =
     "https://wa.me/56949253373?text=Hola!%20Vi%20la%20demo%20del%20cat%C3%A1logo%203D%20y%20me%20gustar%C3%ADa%20cotizar%20para%20mi%20marca";
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white flex flex-col font-sans">
-      {/* iMac Minimal Top Bar */}
-      <header className="sticky top-0 z-40 w-full border-b border-black/[0.06] bg-white/75 backdrop-blur-xl">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <div className="min-h-screen bg-[#FAFAFA] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white flex flex-col font-sans overflow-x-hidden">
+      {/* iMac Minimal Top Bar - 100% Mobile Responsive */}
+      <header className="sticky top-0 z-40 w-full border-b border-black/[0.06] bg-white/80 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-2">
           {/* Brand */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 shrink-0">
             <span className="text-sm font-semibold tracking-tight uppercase">
               Showroom<span className="font-light text-zinc-400">.3D</span>
             </span>
             <span className="hidden sm:inline-block h-3.5 w-px bg-zinc-300" />
             <span className="hidden sm:inline-block text-[11px] text-zinc-500 font-normal tracking-wide">
-              Catálogo Interactivo para Negocios
+              Catálogo Interactivo de Ropa
             </span>
           </div>
 
-          {/* Minimalist Industry Switcher (Apple Style Segmented Control) */}
-          <div className="p-1 rounded-full bg-zinc-100/90 border border-zinc-200/80 flex items-center shadow-inner">
-            <button
-              type="button"
-              onClick={() => setCategory("apparel")}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
-                category === "apparel"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-900"
-              }`}
-            >
-              👕 Ropa
-            </button>
-            <button
-              type="button"
-              onClick={() => setCategory("bakery")}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
-                category === "bakery"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-900"
-              }`}
-            >
-              🍰 Pastelería
-            </button>
-            <button
-              type="button"
-              onClick={() => setCategory("produce")}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
-                category === "produce"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-900"
-              }`}
-            >
-              🥑 Frutas & Huerta
-            </button>
-          </div>
-
-          {/* Contactar Button */}
-          <div className="flex items-center gap-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-medium px-4 py-1.5 rounded-full border border-zinc-300/80 bg-white text-zinc-800 hover:bg-zinc-50 shadow-sm transition-all"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Contactar</span>
-              <ArrowUpRight className="w-3 h-3 text-zinc-400" />
-            </a>
-          </div>
+          {/* Clean Contactar Button */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full border border-zinc-200/90 bg-white text-zinc-800 hover:bg-zinc-50 shadow-sm transition-all shrink-0"
+          >
+            <MessageCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span>Contactar</span>
+            <ArrowUpRight className="w-3 h-3 text-zinc-400 shrink-0" />
+          </a>
         </div>
       </header>
 
       {/* Main Interactive Showroom */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full">
         {/* Minimal Hero Header */}
-        <div className="max-w-4xl mx-auto px-4 pt-12 pb-4 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase mb-3 bg-black/[0.03] border border-black/[0.05] text-zinc-600">
-            <Sparkles className="w-3 h-3 text-amber-500" />
-            Vitrina 3D Multirubro
+        <div className="max-w-4xl mx-auto px-4 pt-8 sm:pt-12 pb-2 text-center">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-medium tracking-wider uppercase mb-3 bg-black/[0.03] border border-black/[0.05] text-zinc-600">
+            <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+            Catálogo Interactivo 3D
           </div>
-          <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight text-zinc-900 text-balance">
-            La vitrina interactiva para cualquier tipo de producto.
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-zinc-900 text-balance px-2">
+            La vitrina virtual para tu marca.
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-zinc-500 max-w-xl mx-auto font-normal leading-relaxed">
-            {category === "apparel" && "Explora moda, poleras y streetwear con perchero de física real y giro 360°."}
-            {category === "bakery" && "Exhibición gourmet para pastelerías, tortas de autor y repostería artesanal."}
-            {category === "produce" && "Catálogo fresco para huertos, canastas de verduras y frutas del campo a la puerta."}
+          <p className="mt-2.5 text-xs sm:text-sm md:text-base text-zinc-500 max-w-xl mx-auto font-normal leading-relaxed px-4">
+            Desliza por las prendas, gíralas en 360° frente y espalda, e interactúa con cada pieza en tiempo real.
           </p>
         </div>
 
-        {/* 3D Showcase Component */}
-        <section className="relative w-full py-4">
-          <ClothingRailShowroom category={category} />
+        {/* 3D Clothing Rail Gallery */}
+        <section className="relative w-full py-2 sm:py-4 overflow-hidden">
+          <ClothingRailShowroom />
         </section>
       </main>
 
@@ -107,17 +64,17 @@ export default function App() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="fixed bottom-6 right-6 z-50 p-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2"
+        className="fixed bottom-5 right-5 z-50 p-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2"
       >
-        <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-        <span className="text-xs font-semibold pr-1">Contactar</span>
+        <MessageCircle className="w-4 h-4 fill-white text-emerald-600 shrink-0" />
+        <span className="text-xs font-semibold pr-1 hidden sm:inline-block">Contactar</span>
       </a>
 
       {/* iMac Minimal Footer */}
-      <footer className="border-t border-black/[0.06] py-8 px-4 sm:px-6 bg-white/60 text-xs text-zinc-500">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Showroom 3D · Demostración de catálogo interactivo para tiendas.</p>
-          <div className="flex items-center gap-6">
+      <footer className="border-t border-black/[0.06] py-6 sm:py-8 px-4 bg-white/60 text-[11px] sm:text-xs text-zinc-500">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p>© {new Date().getFullYear()} Showroom 3D · Catálogo interactivo para tiendas de ropa.</p>
+          <div className="flex items-center gap-5">
             <a
               href={whatsappUrl}
               target="_blank"
